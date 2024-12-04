@@ -8,14 +8,11 @@ RETURNS INT
 DETERMINISTIC
 BEGIN
     DECLARE total_productos INT;
-
-    -- Calcular la cantidad total de productos vendidos con el código especificado
     SELECT SUM(cantidad)
     INTO total_productos
     FROM detalle_pedido
     WHERE codigo_producto = codigo_producto;
 
-    -- Devolver el total calculado
     RETURN IFNULL(total_productos, 0);
 END$$
 

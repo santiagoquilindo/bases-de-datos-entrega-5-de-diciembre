@@ -13,7 +13,6 @@ CREATE TRIGGER trigger_notificar_pago
 AFTER INSERT ON pago
 FOR EACH ROW
 BEGIN
-    -- Insertar un registro en la tabla notificaciones cuando se inserta un nuevo pago
     INSERT INTO notificaciones (fecha_hora, total, codigo_cliente)
     VALUES (NEW.fecha_pago, NEW.total, NEW.codigo_cliente);
 END$$
